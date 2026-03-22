@@ -4,14 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://rgcnet0voui1" path="res://Assets/Player.png" id="1_xhfnw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rpqav"]
-radius = 29.017237
+radius = 24.682991
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_kyqiw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rpqav")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_xhfnw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
