@@ -11,12 +11,17 @@ class grid2:
 	var width
 	var height
 	var list
+
+	func clear():
+		for i in range(list.size()):
+			list[i] = 0
 	
 	func _init(new_wid: int, new_hei: int):
 		width = new_wid
 		height = new_hei
 		list = []
 		list.resize(width*height)
+		clear()
 		
 	func setpoint(point: Vector2i, val: int):
 		list[point.x + width*point.y] = val
@@ -30,6 +35,7 @@ class grid2:
 		list.resize(wid*hei)
 		width = wid
 		height = hei
+		clear()
 		
 func _init(wid: int, hei: int):
 	width = wid

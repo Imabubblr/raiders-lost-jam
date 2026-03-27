@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5kbeiogu7i0v"]
+[gd_scene load_steps=7 format=3 uid="uid://b5kbeiogu7i0v"]
 
 [ext_resource type="Script" uid="uid://dgmlbnbbhonjq" path="res://Scripts/TestGen.gd" id="1_wdhlw"]
 [ext_resource type="Texture2D" uid="uid://bmcil0f42pa64" path="res://Assets/Tiles.png" id="2_y07e3"]
 [ext_resource type="PackedScene" uid="uid://ct3wdeic04hhf" path="res://Scenes/Player.tscn" id="3_y07e3"]
+[ext_resource type="Texture2D" uid="uid://bhbxf4p2k6mb0" path="res://Assets/Enemy.png" id="4_ikc08"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ikc08"]
 texture = ExtResource("2_y07e3")
@@ -25,15 +26,23 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_ikc08")
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("tilemap")]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("tilemap", "player", "exit")]
 script = ExtResource("1_wdhlw")
 tilemap = NodePath("TileMapLayer")
 maze_size = Vector2i(25, 25)
+player = NodePath("Player")
+exit = NodePath("Exit")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(3, 3)
 tile_set = SubResource("TileSet_liiti")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_y07e3")]
+[node name="Player" parent="." instance=ExtResource("3_y07e3")]
 position = Vector2(211, 208)
 SPEED = 1000.0
+
+[node name="Exit" type="Node2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Exit"]
+texture = ExtResource("4_ikc08")
