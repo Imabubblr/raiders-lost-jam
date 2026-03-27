@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5kbeiogu7i0v"]
+
+[ext_resource type="Script" uid="uid://dgmlbnbbhonjq" path="res://Scripts/TestGen.gd" id="1_wdhlw"]
+[ext_resource type="Texture2D" uid="uid://bmcil0f42pa64" path="res://Assets/Tiles.png" id="2_y07e3"]
+[ext_resource type="PackedScene" uid="uid://ct3wdeic04hhf" path="res://Scenes/Player.tscn" id="3_y07e3"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ikc08"]
+texture = ExtResource("2_y07e3")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 32, 32, -32, -32, -32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 32, 32, -32, -32, -32, -32, 32)
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 32, 32, -32, -32, -32, -32, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 32, 32, -32, -32, -32, -32, 32)
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_liiti"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_ikc08")
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("tilemap")]
+script = ExtResource("1_wdhlw")
+tilemap = NodePath("TileMapLayer")
+maze_size = Vector2i(25, 25)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(3, 3)
+tile_set = SubResource("TileSet_liiti")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_y07e3")]
+position = Vector2(211, 208)
+SPEED = 1000.0
