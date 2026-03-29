@@ -30,6 +30,7 @@ sources/2 = SubResource("TileSetAtlasSource_ikc08")
 script = ExtResource("1_wdhlw")
 tilemap = NodePath("TileMapLayer")
 maze_size = Vector2i(25, 25)
+loop_chance = 0.3
 player = NodePath("Player")
 exit = NodePath("Exit")
 
