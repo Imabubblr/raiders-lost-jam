@@ -6,9 +6,9 @@ var height: int
 var start: Vector2i
 var end: Vector2i
 var grid: grid2
-var loop_chance: float = 0.0
+var loop_chance: float = 0.3
 var max_loops: int = -1
-var mid_loop_chance: float = 0.10
+var mid_loop_chance: float = 0.20
 var max_mid_loops: int = -1
 
 class grid2:

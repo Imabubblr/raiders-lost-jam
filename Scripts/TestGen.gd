@@ -12,12 +12,12 @@ extends Node2D
 @export var path_atlas_coords: Vector2i = Vector2i(3, 0)
 @export var path_alternative: int = 0
 
-@export_group("Maze Shape")
-@export_range(0.0, 1.0, 0.01) var loop_chance: float = 0.10
-@export var max_loop_cells: int = -1
 
 @export var player: CharacterBody2D
+@export var enemy: Node2D
 @export var exit: Node2D
+
+var mazes_solved: int = 0
 
 
 func _cell_to_global(cell: Vector2i) -> Vector2:
@@ -28,15 +28,14 @@ func _ready() -> void:
 	create_maze()
 
 func create_maze():
-	if tilemap == null:
-		push_warning("TestGen: tilemap is not assigned.")
-		return
 
+	if enemy != null:
+		enemy.visible = false
+		enemy.set_physics_process(false)
+	
 	tilemap.clear()
 
 	var maze = MazeGen.new(maze_size.x, maze_size.y)
-	maze.loop_chance = loop_chance
-	maze.max_loops = max_loop_cells
 	maze.makemaze()
 	for x in range(maze_size.x):
 		for y in range(maze_size.y):
@@ -53,3 +52,20 @@ func create_maze():
 					tilemap.erase_cell(point)
 	player.global_position = _cell_to_global(maze.start)
 	exit.global_position = _cell_to_global(maze.end)
+	
+	# Reposition existing enemy at entrance after 2 seconds
+	var spawn_position := _cell_to_global(maze.start)
+	await get_tree().create_timer(2).timeout
+	enemy.global_position = spawn_position
+	enemy.visible = true
+	enemy.set_physics_process(true)
+
+
+func _on_exit_body_entered(_body: Node2D) -> void:
+	mazes_solved += 1
+	maze_size += Vector2i(5, 5)
+	create_maze()
+
+	player.set_physics_process(false)
+	await get_tree().create_timer(0.5).timeout
+	player.set_physics_process(true)
