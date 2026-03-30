@@ -22,8 +22,7 @@ debug_color = Color(0, 0, 2.8066084, 1)
 texture = ExtResource("1_m1htj")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-simplify_path = true
-debug_enabled = true
+path_postprocessing = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
