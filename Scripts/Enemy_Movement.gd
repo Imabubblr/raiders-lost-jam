@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 800
+var speed = 900
 
 @export var player: CharacterBody2D
 @onready var nav: NavigationAgent2D = $NavigationAgent2D as NavigationAgent2D
