@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://c16rejt0cink6"]
+
+[ext_resource type="Script" uid="uid://bkl0sbacg88uu" path="res://Scripts/End.gd" id="1_pw64i"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("game_over_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pw64i")
+game_over_label = NodePath("RichTextLabel")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 333.0
+offset_right = 1250.0
+offset_bottom = 743.0
+theme_override_font_sizes/normal_font_size = 100
+theme_override_font_sizes/bold_font_size = 200
+bbcode_enabled = true
+text = "Mazes Beat: 0
+High Score: 0"
+fit_content = true
+tab_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 50.0
+offset_right = 1252.0
+offset_bottom = 460.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 100
+theme_override_font_sizes/bold_font_size = 200
+bbcode_enabled = true
+text = "[b]GAME OVER[/b]"
+fit_content = true
+tab_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 712.0
+offset_right = 883.0
+offset_bottom = 823.0
+theme_override_font_sizes/font_size = 75
+text = "Back to Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

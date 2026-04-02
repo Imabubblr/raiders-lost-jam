@@ -63,6 +63,7 @@ func create_maze():
 
 func _on_exit_body_entered(_body: Node2D) -> void:
 	mazes_solved += 1
+	GameState.mazes_beat = mazes_solved
 	maze_size += Vector2i(5, 5)
 	create_maze()
 
