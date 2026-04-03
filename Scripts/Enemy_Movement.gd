@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
-var speed = 900
+var speed = 950
 
 @export var player: CharacterBody2D
 @onready var nav: NavigationAgent2D = $NavigationAgent2D as NavigationAgent2D
 
 func _physics_process(_delta: float) -> void:
 	var dir = to_local(nav.get_next_path_position()).normalized()
-	velocity = dir * speed
+	velocity = dir * (speed + GameState.mazes_beat*20)
 	
 	move_and_slide()
 

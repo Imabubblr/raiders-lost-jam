@@ -53,9 +53,9 @@ func create_maze():
 	player.global_position = _cell_to_global(maze.start)
 	exit.global_position = _cell_to_global(maze.end)
 	
-	# Reposition existing enemy at entrance after 2 seconds
+	# Reposition existing enemy at entrance after 1.5 second
 	var spawn_position := _cell_to_global(maze.start)
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1.5).timeout
 	enemy.global_position = spawn_position
 	enemy.visible = true
 	enemy.set_physics_process(true)
