@@ -18,6 +18,7 @@ extends Node2D
 @export var exit: Node2D
 
 var mazes_solved: int = 0
+var is_transitioning: bool = false
 
 
 func _cell_to_global(cell: Vector2i) -> Vector2:
@@ -26,6 +27,7 @@ func _cell_to_global(cell: Vector2i) -> Vector2:
 
 func _ready() -> void:
 	create_maze()
+	mazes_solved = -1
 
 func create_maze():
 
@@ -62,6 +64,11 @@ func create_maze():
 
 
 func _on_exit_body_entered(_body: Node2D) -> void:
+	if is_transitioning:
+		return
+	
+	is_transitioning = true
+	
 	mazes_solved += 1
 	GameState.mazes_beat = mazes_solved
 	maze_size += Vector2i(5, 5)
@@ -70,3 +77,5 @@ func _on_exit_body_entered(_body: Node2D) -> void:
 	player.set_physics_process(false)
 	await get_tree().create_timer(0.5).timeout
 	player.set_physics_process(true)
+	
+	is_transitioning = false

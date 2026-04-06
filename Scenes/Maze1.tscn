@@ -1,97 +1,112 @@
-[gd_scene load_steps=14 format=3 uid="uid://b5kbeiogu7i0v"]
+[gd_scene load_steps=15 format=3 uid="uid://b5kbeiogu7i0v"]
 
 [ext_resource type="Script" uid="uid://dgmlbnbbhonjq" path="res://Scripts/TestGen.gd" id="1_wdhlw"]
 [ext_resource type="Texture2D" uid="uid://bmcil0f42pa64" path="res://Assets/Tiles.png" id="2_y07e3"]
 [ext_resource type="PackedScene" uid="uid://ct3wdeic04hhf" path="res://Scenes/Player.tscn" id="3_y07e3"]
-[ext_resource type="Texture2D" uid="uid://bxwnafr7gagvg" path="res://Assets/Exit.png" id="4_liiti"]
-[ext_resource type="Script" uid="uid://xol0aj7e4cr6" path="res://Scripts/Portal_Rotate.gd" id="5_b6vxv"]
+[ext_resource type="Texture2D" uid="uid://dyu1t5sw28dra" path="res://Assets/SpinPortal.png" id="4_liiti"]
 [ext_resource type="PackedScene" uid="uid://bbpw6gkl8vusg" path="res://Scenes/Enemy.tscn" id="6_b6vxv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_liiti"]
-vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
+vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-32, 32, 32, 32, 32, -32, -32, -32)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
 agent_radius = 0.0
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_b6vxv"]
-vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-32, 32, 32, 32, 32, -32, -32, -32)])
-agent_radius = 0.0
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_f3v17"]
-vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-32, 32, 32, 32, 32, -32, -32, -32)])
-agent_radius = 0.0
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_34gbn"]
-vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-32, 32, 32, 32, 32, -32, -32, -32)])
-agent_radius = 0.0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ikc08"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b6vxv"]
 texture = ExtResource("2_y07e3")
-texture_region_size = Vector2i(64, 64)
+texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 32, 32, -32, -32, -32, -32, 32)
-2:0/0 = 0
-2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_liiti")
-3:0/0 = 0
-3:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_f3v17")
-0:1/0 = 0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 32, 32, -32, -32, -32, -32, 32)
-1:1/0 = 0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, 32, 32, -32, -32, -32, -32, 32)
-2:1/0 = 0
-2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_b6vxv")
-3:1/0 = 0
-3:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_34gbn")
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_liiti")
 
-[sub_resource type="TileSet" id="TileSet_liiti"]
-tile_size = Vector2i(64, 64)
-physics_layer_0/collision_layer = 1
-navigation_layer_0/layers = 1
-sources/2 = SubResource("TileSetAtlasSource_ikc08")
+[sub_resource type="TileSet" id="TileSet_f3v17"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+navigation_layer_0/layers = 3
+sources/0 = SubResource("TileSetAtlasSource_b6vxv")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_b6vxv"]
-radius = 31.503967
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b6vxv"]
+radius = 12.5
+height = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3v17"]
+atlas = ExtResource("4_liiti")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34gbn"]
+atlas = ExtResource("4_liiti")
+region = Rect2(24, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k3co"]
+atlas = ExtResource("4_liiti")
+region = Rect2(0, 32, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2elr"]
+atlas = ExtResource("4_liiti")
+region = Rect2(24, 32, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y2cht"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3v17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34gbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k3co")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2elr")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 6.0
+}]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("tilemap", "player", "enemy", "exit")]
 script = ExtResource("1_wdhlw")
 tilemap = NodePath("TileMapLayer")
-maze_size = Vector2i(20, 20)
+wall_source_id = 0
+path_source_id = 0
+path_atlas_coords = Vector2i(1, 0)
 player = NodePath("Player")
 enemy = NodePath("Enemy")
 exit = NodePath("Exit")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-scale = Vector2(3, 3)
-tile_set = SubResource("TileSet_liiti")
+tile_set = SubResource("TileSet_f3v17")
 
 [node name="Player" parent="." instance=ExtResource("3_y07e3")]
 position = Vector2(211, 208)
-SPEED = 1000.0
+scale = Vector2(0.8, 0.8)
+SPEED = 350.0
 
 [node name="Exit" type="Area2D" parent="."]
-scale = Vector2(2, 2)
+position = Vector2(-606, -154)
 collision_layer = 2
 collision_mask = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="Exit"]
-scale = Vector2(0.531, 0.5)
-texture = ExtResource("4_liiti")
-script = ExtResource("5_b6vxv")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-visible = false
-shape = SubResource("CircleShape2D_b6vxv")
+shape = SubResource("CapsuleShape2D_b6vxv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Exit"]
+sprite_frames = SubResource("SpriteFrames_y2cht")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame = 3
+frame_progress = 1.0
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_b6vxv")]
-position = Vector2(361, -12)
+position = Vector2(623, 47)
 player = NodePath("../Player")
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
