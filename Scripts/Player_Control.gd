@@ -19,14 +19,14 @@ func _physics_process(_delta: float) -> void:
 	read_input()
 	
 	if xdirection:
-		velocity.x = xdirection * SPEED
+		velocity.x = xdirection * (SPEED + GameState.mazes_beat*5)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, (SPEED + GameState.mazes_beat*5))
 		
 	if ydirection:
-		velocity.y = ydirection * SPEED
+		velocity.y = ydirection * (SPEED + GameState.mazes_beat*5)
 	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+		velocity.y = move_toward(velocity.y, 0, (SPEED + GameState.mazes_beat*5))
 	
 	move_and_slide()
 	xdirection = 0

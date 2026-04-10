@@ -24,27 +24,28 @@ tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAA
 tile_set = SubResource("TileSet_rgh2o")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1011, 700)
-zoom = Vector2(0.7, 0.7)
+position = Vector2(337, 236)
+zoom = Vector2(2, 2)
 
 [node name="Label" type="RichTextLabel" parent="."]
-offset_left = 435.0
-offset_top = 764.0
-offset_right = 1581.0
-offset_bottom = 939.0
+offset_left = 78.0
+offset_top = 257.0
+offset_right = 1224.0
+offset_bottom = 432.0
+scale = Vector2(0.44610706, 0.4293925)
 theme = SubResource("Theme_pbw6q")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 100
-theme_override_font_sizes/bold_font_size = 50
+theme_override_font_sizes/bold_font_size = 35
 bbcode_enabled = true
 text = "[b]Click Chest To Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1010.00006, 699)
-scale = Vector2(1.266867, 1.2748389)
+position = Vector2(333, 237)
+scale = Vector2(0.5, 0.504)
 texture = ExtResource("2_idj7w")
 
 [node name="Button" type="Button" parent="Sprite2D"]

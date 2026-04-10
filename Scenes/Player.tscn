@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://ct3wdeic04hhf"]
 
 [ext_resource type="Script" uid="uid://cak77hgvqhr1t" path="res://Scripts/Player_Control.gd" id="1_kyqiw"]
-[ext_resource type="Texture2D" uid="uid://rgcnet0voui1" path="res://Assets/Player.png" id="1_xhfnw"]
+[ext_resource type="Texture2D" uid="uid://c54rpox6khk2b" path="res://Assets/Player.png" id="1_xhfnw"]
 [ext_resource type="Texture2D" uid="uid://cuw3dkawu4qve" path="res://Assets/WalkLeft.png" id="2_gntrk"]
 [ext_resource type="Texture2D" uid="uid://e6y3i8hoprjk" path="res://Assets/PlayerAnim.png" id="3_dewec"]
 
@@ -98,6 +98,7 @@ script = ExtResource("1_kyqiw")
 shape = SubResource("CircleShape2D_dewec")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
