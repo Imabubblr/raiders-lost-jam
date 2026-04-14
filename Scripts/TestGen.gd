@@ -15,6 +15,7 @@ extends Node2D
 
 @export var player: CharacterBody2D
 @export var enemy: Node2D
+@export var wait_time: float
 @export var exit: Node2D
 
 var mazes_solved: int = 0
@@ -27,7 +28,6 @@ func _cell_to_global(cell: Vector2i) -> Vector2:
 
 func _ready() -> void:
 	create_maze()
-	mazes_solved = -1
 
 func create_maze():
 
@@ -57,7 +57,7 @@ func create_maze():
 	
 	# Reposition existing enemy at entrance after 1.5 second
 	var spawn_position := _cell_to_global(maze.start)
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(wait_time).timeout
 	enemy.global_position = spawn_position
 	enemy.visible = true
 	enemy.set_physics_process(true)
