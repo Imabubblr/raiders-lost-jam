@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr62l3vlhkql7"
-path="res://.godot/imported/Index.png-28052f6f2f4bcdb99622a39964c26efa.ctex"
+uid="uid://b3dgjswv8nt3d"
+path="res://.godot/imported/index.png-92f2b825acf812d44b31e8f9d17abeb1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mazes Run/Index.png"
-dest_files=["res://.godot/imported/Index.png-28052f6f2f4bcdb99622a39964c26efa.ctex"]
+source_file="res://Mazes Run/index.png"
+dest_files=["res://.godot/imported/index.png-92f2b825acf812d44b31e8f9d17abeb1.ctex"]
 
 [params]
 
